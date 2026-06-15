@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>13. Roman to Integer:EASY</title>
+    <style>
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    <ol>
+      <li>
+        <h3>
+          This shit was tuff. I had to convert each element of a an array(string) into an integer, which I am glad because now I know what methods I can use. Though there are better ways of doing this like a lookup object.
+        </h3>
+      </li>
+      <li>
+        <h3>
+          Also, when working with loops, make sure to check the first and last iterations. Those can fuck you up really bad. 
+        </h3>
+      </li>
+    </ol>
+    <script>
+      var romanToInt = function (romanString) {
+        function convertStringToInt(s) {
+          switch (s) {
+            case "I":
+              return 1;
+            case "V":
+              return 5;
+            case "X":
+              return 10;
+            case "L":
+              return 50;
+            case "C":
+              return 100;
+            case "D":
+              return 500;
+            case "M":
+              return 1000;
+            default:
+              return "Not a valid string type";
+          }
+        }
+
+        let string = romanString.split("").reverse();
+        let total = convertStringToInt(string[0]);
+
+        for (let i = 0; i < string.length - 1; i++) {
+          if (
+            convertStringToInt(string[i]) <= convertStringToInt(string[i + 1])
+          ) {
+            total = total + convertStringToInt(string[i + 1]);
+          } else {
+            total = total - convertStringToInt(string[i + 1]);
+          }
+        }
+
+        return total;
+      };
+
+      // TEST CASES
+      console.log(romanToInt("III"));
+      console.log(romanToInt("LVIII"));
+      console.log(romanToInt("MCMXCIV"));
+
+      /* PERSONAL NOTES
+
+      //Better ways to do this 
+
+      var romanToInt = function(romanString) {
+        const roman = { I:1, V:5, X:10, L:50, C:100, D:500, M:1000 };
+    
+        let total = 0;
+    
+        for (let i = 0; i < romanString.length; i++) {
+          let current = roman[romanString[i]];
+          let next = roman[romanString[i + 1]];
+          
+          if (current < next) {
+            total -= current;
+          } else {
+            total += current;
+          }
+        }
+    
+        return total;
+      };
+
+      // Notice this one doesn't even need to reverse the string — it reads left to right. If the current value is less than the next, subtract it. Otherwise add it.
+
+      var romanToInt = function(romanString) {
+        const roman = { I:1, V:5, X:10, L:50, C:100, D:500, M:1000 };
+  
+        return romanString.split("").reduce((total, char, i) => {
+          const current = roman[char];
+          const next = roman[romanString[i + 1]];
+          return current < next ? total - current : total + current;
+        }, 0);
+      };
+
+      */
+    </script>
+  </body>
+</html>
