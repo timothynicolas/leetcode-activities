@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>1.Two Sum:EASY</title>
+  </head>
+  <body>
+    <script>
+      /**
+       * @param {number[]} nums
+       * @param {number} target
+       * @return {number[]}
+       */
+      let numsArray1 = [2, 7, 11, 15];
+      let numsArray2 = [3, 2, 4];
+      let numsArray3 = [3, 3];
+
+      var twoSum = function (nums, target) {
+        for (let i = 0; i < nums.length; i++) {
+          for (let j = i + 1; j < nums.length; j++) {
+            if (nums[i] + nums[j] === target) {
+              return [i, j];
+            }
+          }
+        }
+      };
+
+
+      // TEST CASES
+      console.log(twoSum(numsArray1, 9));
+      console.log(twoSum(numsArray2, 6));
+      console.log(twoSum(numsArray3, 6));
+    </script>
+  </body>
+</html>
