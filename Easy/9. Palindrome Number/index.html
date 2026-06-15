@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>9.Palindrome Number:EASY</title>
+    <style>
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    <ol>
+      <li>
+        <h3>
+          I learned how to convert an integer into an string which is by using
+          the <i>String()</i> method.
+        </h3>
+      </li>
+      <li>
+        <h3>
+          The <i>split(character)</i>method takes an argument and returns an
+          array of strings that is split between the argument that you have
+          given.
+        </h3>
+      </li>
+      <li>
+        <h3>
+          The <i>reverse()</i> method returns an array but in reversed order
+        </h3>
+      </li>
+      <li>
+        <h3>
+          The <i>join()</i> method takes all the elements of an array and joins
+          them into a single string.
+        </h3>
+      </li>
+    </ol>
+
+    <script>
+      var isPalindrome = function (num) {
+        let string = String(num);
+        let reversedString = String(num).split("").reverse().join("");
+
+        if (string === reversedString) {
+          return true;
+        } else {
+          return false;
+        }
+      };
+
+      //TEST CASES
+      console.log(isPalindrome(121));
+      console.log(isPalindrome(-121));
+      console.log(isPalindrome(10));
+
+      console.log("hello".split(""));
+    </script>
+  </body>
+</html>
