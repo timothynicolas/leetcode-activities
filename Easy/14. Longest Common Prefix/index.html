@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>14. Longest Common Prefix:EASY</title>
+    <style>
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    <ol>
+      <li>
+        <h3>
+          Tbh, I did not solve this problem myself. I used AI to solve it for
+          me. However, the important thing is I learned about the slice() method
+        </h3>
+      </li>
+      <li>
+        <h3>I also learned that strings are also considered an array.</h3>
+      </li>
+    </ol>
+    <script>
+      var longestCommonPrefix = function (strs) {
+        if (strs.length === 0) return "";
+
+        let first = strs[0];
+
+        for (let i = 0; i < first.length; i++) {
+          for (let j = 1; j < strs.length; j++) {
+            if (strs[j][i] !== first[i]) {
+              return first.slice(0, i);
+            }
+          }
+        }
+
+        return first;
+      };
+
+      // TEST CASES
+      console.log(longestCommonPrefix(["flower", "flow", "flight"]));
+      console.log(longestCommonPrefix(["dog", "racecar", "car"]));
+      console.log(longestCommonPrefix(["flower", "flow", "flowing"]));
+    </script>
+  </body>
+</html>
