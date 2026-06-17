@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>26. Remove Duplicates from Sorted Array:EASY</title>
+    <style>
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    <ol>
+      <li>
+        <h3>
+          Tbh, I did not solve this problem myself. I used AI to solve it for
+          me. However, the important thing is I learned about the slice() method
+        </h3>
+      </li>
+    </ol>
+    <script>
+      var removeDuplicates = function (nums) {
+        if (nums.length === 0) return 0;
+
+        let k = 1; // first element is always unique, nums[0]
+
+        for (let i = 1; i < nums.length; i++) {
+          if (nums[i] !== nums[k - 1]) {
+            nums[k] = nums[i];
+            k++;
+          }
+        }
+
+        return k;
+      };
+      
+
+      // TEST CASES
+      let a = [1, 1, 2];
+      console.log(removeDuplicates(a), a); // 2 [1, 2, 2]
+
+      let b = [0, 0, 1, 1, 1, 2, 2, 3, 3, 4];
+      console.log(removeDuplicates(b), b); // 5 [0, 1, 2, 3, 4, 2, 2, 3, 3, 4]
+    </script>
+  </body>
+</html>
