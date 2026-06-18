@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>28. Find the Index of the First Occurrence in a String: EASY</title>
+    <style>
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    <ol>
+      <li>
+        <h3>
+          I solved it on my own without help of AI. However, when i had the code reviewed by AI, I found out that there was a MUCH simpler solution. which is to use indexOf(). It was ONE LINE. This goes to show how important it is for me to familiarize myself with built-in string methods in JavaScript.
+        </h3>
+      </li>
+    </ol>
+    <script>
+      var strStr = function (haystack, needle) {
+        let firstIndex = -1;
+
+        for (let i = 0; i < haystack.length; i++) {
+          if (
+            needle[0] === haystack[i] &&
+            needle.split("").join("") ===
+              haystack
+                .split("")
+                .slice(i, i + needle.length)
+                .join("")
+          ) {
+            firstIndex = i;
+            return firstIndex;
+          }
+        }
+
+        return firstIndex;
+      };
+
+      // TEST CASES
+      console.log(strStr("sadbutsad", "sad"));
+      console.log(strStr("leetcode", "leeto"));
+      console.log(strStr("oooleetocode", "leeto"));
+    </script>
+  </body>
+</html>
