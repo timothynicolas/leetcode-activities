@@ -28,15 +28,10 @@
         let right = nums.length - 1;
 
         while (left <= right) {
-          const mid = Math.floor((left + right) / 2);
+          let mid = Math.floor((left + right) / 2);
 
-          // RETURN IF NUMS INCLUDES TARGET
           if (nums[mid] === target) {
             return mid;
-          }
-
-          if(target === nums[left] + 1){
-            return left + 1
           }
 
           if (nums[mid] < target) {
@@ -46,7 +41,7 @@
           }
         }
 
-        return -1;
+        return left;
       };
 
       // TEST CASES
@@ -54,7 +49,6 @@
       console.log(searchInsert([1, 3, 5, 6], 2));
       console.log(searchInsert([1, 3, 5, 6], 7));
       console.log(searchInsert([1, 3, 5, 6], 0));
-      
     </script>
   </body>
 </html>
