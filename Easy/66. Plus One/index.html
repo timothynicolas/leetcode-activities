@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>66. Plus One: EASY</title>
+    <style>
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    <ol>
+      <li>
+        <h3>
+          alright, i solved this without the help of AI. the last return
+          statement was a little but tricky. i learned that JS has at() method
+          that supports negative indexing. and i learnt about unshift to add new
+          elements at the start of the array. I'd rate the difficulty of this
+          problem a 5/10. I also learned that the code
+        </h3>
+
+        <h3><i>let returnedArr = digits</i></h3>
+
+        <h3>does not create a copy, but mutates the original array. as both returnedArr and digits points to the same array in memory. so when you modify the returnedArr, you also modify the original array which is digits</h3>
+      </li>
+    </ol>
+    <script>
+      var plusOne = function (digits) {
+        let returnedArr = digits;
+        const l = digits.length;
+
+        for (let i = 1; i < l + 1; i++) {
+          if (digits[l - i] === 9) {
+            returnedArr[l - i] = 0;
+          } else {
+            returnedArr[l - i] += 1;
+            return returnedArr;
+          }
+        }
+
+        returnedArr.unshift(1);
+
+        return returnedArr;
+      };
+
+      // TEST CASES
+      console.log(plusOne([1, 2, 3]));
+      console.log(plusOne([9]));
+      console.log(plusOne([2, 9]));
+      console.log(plusOne([4, 3, 2, 1]));
+      console.log(plusOne([9, 9]));
+    </script>
+  </body>
+</html>
