@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>67. Add Binary: EASY</title>
+    <style>
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    <ol>
+      <li>
+        <h3>
+          OPTIMAL SOLUTION
+        </h3>
+      </li>
+    </ol>
+    <script>
+      var addBinary = function (a, b) {
+        let i = a.length - 1;
+        let j = b.length - 1;
+        let carry = 0;
+        let result = [];
+
+        while (i >= 0 || j >= 0 || carry) {
+          let sum = carry;
+
+          if (i >= 0) sum += a[i--] - "0"; // convert char to int by subtracting '0'
+          if (j >= 0) sum += b[j--] - "0";
+
+          carry = Math.floor(sum / 2);
+          result.push(sum % 2);
+        }
+
+        return result.reverse().join("");
+      };
+
+      // TEST CASES
+
+      console.log(addBinary("11", "1"));
+      console.log(addBinary("1010", "1011"));
+      console.log(addBinary("0", "0"));
+      console.log(
+        addBinary(
+          "10100000100100110110010000010101111011011001101110111111111101000000101111001110001111100001101",
+          "110101001011101110001111100110001010100001101011101010000011011011001011101111001100000011011110011",
+        ),
+      );
+      console.log(addBinary("1111", "11101"));
+    </script>
+  </body>
+</html>
