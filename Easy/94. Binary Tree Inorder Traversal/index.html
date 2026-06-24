@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>94. Binary Tree Inorder Traversal: EASY</title>
+    <style>
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    <ol>
+      <li>
+        <h3>
+          Jeez Louise, this was hard, but I learned a lot today. learned about
+          BigInt() like it has weird interactions with different types of
+          integers (often returns an error). they can only work with the same
+          data type - similarly to how you can't directly mix strings and
+          numbers in arithmetic. the reason why we have to use BigInt with
+          larger numbers is because the data type "Number" only has a limited
+          amount of memory and therefore loses precision.
+        </h3>
+      </li>
+    </ol>
+    <script>
+      function TreeNode(val, left, right) {
+        this.val = val === undefined ? 0 : val;
+        this.left = left === undefined ? null : left;
+        this.right = right === undefined ? null : right;
+      }
+
+      function arrayToTree(arr) {
+        if (!arr || arr.length === 0) return null;
+
+        const root = new TreeNode(arr[0]);
+        const queue = [root];
+        let i = 1;
+
+        while (i < arr.length) {
+          const current = queue.shift();
+
+          if (i < arr.length) {
+            if (arr[i] !== null) {
+              current.left = new TreeNode(arr[i]);
+              queue.push(current.left);
+            }
+            i++;
+          }
+
+          if (i < arr.length) {
+            if (arr[i] !== null) {
+              current.right = new TreeNode(arr[i]);
+              queue.push(current.right);
+            }
+            i++;
+          }
+        }
+
+        return root;
+      }
+
+      var inorderTraversal = function (root) {
+        const result = [];
+
+        function traverse(node) {
+          if (node === null) return;
+
+          traverse(node.left);
+          result.push(node.val);
+          traverse(node.right);
+        }
+
+        traverse(root);
+        return result;
+      };
+
+      console.log(inorderTraversal(arrayToTree([1, null, 2, 3])));
+      console.log(
+        inorderTraversal(
+          arrayToTree([1, 2, 3, 4, 5, null, 8, null, null, 6, 7, 9]),
+        ),
+      );
+      console.log(inorderTraversal(arrayToTree([])));
+      console.log(inorderTraversal(arrayToTree([1])));
+    </script>
+  </body>
+</html>
