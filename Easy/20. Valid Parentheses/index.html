@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>20. Valid Parentheses: EASY</title>
+    <style>
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    <ol>
+      <li>
+        <h3></h3>
+      </li>
+    </ol>
+    <script>
+      var isValid = function (s) {
+        if (s.length % 2 === 1) return false;
+
+        const bracketMap = {
+          ")": "(",
+          "}": "{",
+          "]": "[",
+        };
+
+        const stack = [];
+
+        for (let char of s) {
+          if (bracketMap[char]) {
+            const lastOpen = stack.pop();
+
+            if (lastOpen !== bracketMap[char]) {
+              return false;
+            }
+          } else {
+            stack.push(char);
+          }
+        }
+
+        return stack.length === 0;
+      };
+
+      // Test cases
+      console.log(isValid("()"));
+      console.log(isValid("()[]{}"));
+      console.log(isValid("(]"));
+      console.log(isValid("([])"));
+      console.log(isValid("([)]"));
+    </script>
+  </body>
+</html>
