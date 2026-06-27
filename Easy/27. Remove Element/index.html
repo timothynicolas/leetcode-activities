@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>27. Remove Element:EASY</title>
+    <style>
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    <ol>
+      <li>
+        <h3></h3>
+      </li>
+    </ol>
+    <script>
+      var removeElement = function (nums, val) {
+        let k = 0;
+
+        for(let i = 0; i < nums.length; i++){
+          if(nums[i] !== val){
+            nums[k] = nums[i];
+            k++;
+          }
+        }
+
+        return k;
+      };
+
+      // TEST CASES
+     
+      console.log(removeElement([3,2,2,3], 3)); 
+
+      console.log(removeElement([0,1,2,2,3,0,4,2], 2)); 
+    </script>
+  </body>
+</html>
