@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>69. Sqrt(x): EASY</title>
+    <style>
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    <ol>
+      <li>
+        <h3>I just solved this by using the binary search algorithm. Just keep on dividing the list of possibile square by half.</h3>
+      </li>
+    </ol>
+    <script>
+      var mySqrt = function (x) {
+        if (x < 2) return x;
+
+        let left = 0;
+        let right = x;
+
+        while (left <= right) {
+          let mid = Math.floor(left + (right - left) / 2);
+          let square = mid * mid;
+
+          if (square === x) {
+            return mid;
+          } else if (square < x) {
+            left = mid + 1;
+          } else {
+            right = mid - 1;
+          }
+        }
+
+        return right;
+      };
+
+      console.log(mySqrt(4));
+      console.log(mySqrt(8));
+      console.log(mySqrt(168));
+    </script>
+  </body>
+</html>
