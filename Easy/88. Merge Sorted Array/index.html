@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>88. Merge Sorted Array:EASY</title>
+    <style>
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    <ol>
+      <li>
+        <h3>
+          Nothing to learn here. But I have to admit na nahirapan ako
+          ma-visualize sa utak ko kung paano yung algorithm na gagawin ko. I
+          enjoyed solving this one on my own without the help of AI! :D
+        </h3>
+      </li>
+    </ol>
+    <script>
+      var merge = function (nums1, m, nums2, n) {
+        let pointer1 = m - 1;
+        let pointer2 = n - 1;
+        let pointer3 = m + n - 1;
+        while (pointer2 >= 0) {
+          if (nums1[pointer1] >= nums2[pointer2]) {
+            nums1[pointer3] = nums1[pointer1];
+            pointer3--;
+            pointer1--;
+          } else {
+            nums1[pointer3] = nums2[pointer2];
+            pointer3--;
+            pointer2--;
+          }
+        }
+      };
+
+      // TEST CASES
+      console.log(merge([1, 2, 3, 0, 0, 0], 3, [2, 5, 6], 3)); // [1,2,2,3,5,6]
+      console.log(merge([1], 1, [], 0)); // [1]
+      console.log(merge([0], 0, [1], 1)); // [1]
+    </script>
+  </body>
+</html>
