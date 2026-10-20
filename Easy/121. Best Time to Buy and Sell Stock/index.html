@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>121. Best Time to Buy and Sell Stock:EASY</title>
+    <style>
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    <ol>
+      <li>
+        <h3>
+          Medyo nahirapan ako dito. idk, it was supposed to be easy. It's okay tho, we build these problem-solving skills through consistent repetition.
+        </h3>
+      </li>
+    </ol>
+    <script>
+      var maxProfit = function (prices) {
+        let minPrice = prices[0];
+        let maxProfit = 0;
+        let currentProfit;
+
+        for (let i = 1; i < prices.length; i++) {
+          if (prices[i] < minPrice) {
+            minPrice = prices[i];
+          }
+          currentProfit = prices[i] - minPrice;
+          if (currentProfit > maxProfit) {
+            maxProfit = currentProfit;
+          }
+        }
+        return maxProfit;
+      };
+
+      // TEST CASES
+      console.log(maxProfit([7, 1, 5, 3, 6, 4])); // 5
+      console.log(maxProfit([7, 6, 4, 3, 1])); // 0
+      console.log(maxProfit([2, 4, 1, 7])); // 6
+    </script>
+  </body>
+</html>
